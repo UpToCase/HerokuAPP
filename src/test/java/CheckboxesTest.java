@@ -4,8 +4,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNull;
+import static org.testng.Assert.*;
 
 public class CheckboxesTest extends BaseTest {
     @Test
@@ -13,15 +12,15 @@ public class CheckboxesTest extends BaseTest {
         driver.get("https://the-internet.herokuapp.com/checkboxes");
         List<WebElement> checkboxList =
                 driver.findElements(By.cssSelector("[type='checkbox']"));
-        assertNull(checkboxList.get(0).getAttribute("checked"),
+        assertFalse(checkboxList.get(0).isSelected(),
                 "the first checkbox is checked");
         checkboxList.get(0).click();
-        assertEquals(checkboxList.get(0).getAttribute("checked"),
-                "true", "the first checkbox is unchecked");
-        assertEquals(checkboxList.get(1).getAttribute("checked"),
-                "true", "the second checkbox is unchecked");
+        assertTrue(checkboxList.get(0).isSelected(),
+                "the first checkbox is unchecked");
+        assertTrue(checkboxList.get(1).isSelected(),
+                "the second checkbox is unchecked");
         checkboxList.get(1).click();
-        assertNull(checkboxList.get(1).getAttribute("checked"),
+        assertFalse(checkboxList.get(1).isSelected(),
                 "the second checkbox is checked");
     }
 }
