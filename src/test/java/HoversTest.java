@@ -21,8 +21,10 @@ public class HoversTest extends BaseTest {
         driver.get("https://the-internet.herokuapp.com/hovers");
         Actions actions = new Actions(driver);
 
-        actions.moveToElement(driver.findElement(By.xpath
-                ("//*[@id='content']//div[1]/img"))).build().perform();
+        actions
+                .moveToElement(driver.findElement(By.xpath("//*[@id='content']//div[1]/img")))
+                .build()
+                .perform();
         assertEquals(driver.findElement(By.xpath("//*[@id='content']//div[1]/div/h5")).
                 getText(), "name: user1", "Wrong username displayed");
         driver.findElement(By.cssSelector("[href='/users/1']")).click();
@@ -30,8 +32,10 @@ public class HoversTest extends BaseTest {
                 "Not Found", "error massages is not displayed");
         moveToPreviousPage();
 
-        actions.moveToElement(driver.findElement
-                (By.xpath("//*[@id='content']//div[2]/img"))).build().perform();
+        actions
+                .moveToElement(driver.findElement(By.xpath("//*[@id='content']//div[2]/img")))
+                .build()
+                .perform();
         assertEquals(driver.findElement(By.xpath("//*[@id='content']//div[2]/div/h5")).
                 getText(), "name: user2", "Wrong username displayed");
         driver.findElement(By.cssSelector("[href='/users/2']")).click();
@@ -39,8 +43,10 @@ public class HoversTest extends BaseTest {
                 "Not Found", "error massages is not displayed");
         moveToPreviousPage();
 
-        actions.moveToElement(driver.findElement
-                (By.xpath("//*[@id='content']//div[3]/img"))).build().perform();
+        actions
+                .moveToElement(driver.findElement(By.xpath("//*[@id='content']//div[3]/img")))
+                .build()
+                .perform();
         assertEquals(driver.findElement(By.xpath("//*[@id='content']//div[3]/div/h5")).
                 getText(), "name: user3", "Wrong username displayed");
         driver.findElement(By.cssSelector("[href='/users/3']")).click();
