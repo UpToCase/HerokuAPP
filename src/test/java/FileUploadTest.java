@@ -13,8 +13,8 @@ public class FileUploadTest extends BaseTest{
     @Test
     public void fileUploadTest() {
         driver.get("https://the-internet.herokuapp.com/upload");
-        File movieFileForDownload = new File("src/test/resources/text.html");
-        driver.findElement(By.id("file-upload")).sendKeys(movieFileForDownload.getAbsolutePath());
+        File textFileForDownload = new File("src/test/resources/text.html");
+        driver.findElement(By.id("file-upload")).sendKeys(textFileForDownload.getAbsolutePath());
         driver.findElement(By.id("file-submit")).click();
         wait.until(ExpectedConditions.attributeContains(By.id("uploaded-files"),
                 "class", "panel text-center"));
